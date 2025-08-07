@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjuirrk2hk76n"]
+
+[ext_resource type="Script" uid="uid://cf1e3me7pvxw6" path="res://Player/Player.gd" id="1_3qydi"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3qydi"]
+radius = 0.275
+height = 1.12
+
+[sub_resource type="SphereMesh" id="SphereMesh_q3lat"]
+radius = 0.315
+height = 0.66
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_q3lat"]
+radius = 0.15
+height = 0.655
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_3qydi")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575932, 0)
+mesh = SubResource("CapsuleMesh_3qydi")
+
+[node name="Head" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.815718, 0)
+mesh = SubResource("SphereMesh_q3lat")
+skeleton = NodePath("../..")
+
+[node name="Arm" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.361802, 0.836179, -0.612924)
+mesh = SubResource("CapsuleMesh_q3lat")
