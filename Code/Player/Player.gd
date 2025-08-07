@@ -4,8 +4,16 @@ class_name Player
 var speed: float = 4.0 # m /s.
 var velocity: Vector3 = Vector3.ZERO
 
+@onready var mouse_plane = $MousePlane
+@onready var target = $Target
+@onready var pivot = $Pivot
+
 func _ready() -> void:
-	pass # Replace with function body.
+	mouse_plane.input_event.connect(OnHover)
+
+func OnHover(camera, event, event_position, normal, shape_idx):
+	print(event_position)
+	target.position = event_position - position
 
 func _process(delta: float) -> void:
 	# Player movement.
@@ -21,3 +29,7 @@ func _process(delta: float) -> void:
 		velocity += Vector3.BACK
 	
 	position += velocity.normalized() * delta * speed
+	
+	# Arm Rotation.
+	var angle = atan2(-target.position.x, -target.position.z)
+	pivot.rotation.y = angle

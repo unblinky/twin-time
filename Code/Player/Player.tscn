@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjuirrk2hk76n"]
+[gd_scene load_steps=7 format=3 uid="uid://cjuirrk2hk76n"]
 
 [ext_resource type="Script" uid="uid://cf1e3me7pvxw6" path="res://Player/Player.gd" id="1_3qydi"]
+[ext_resource type="PackedScene" uid="uid://bmtbd8fpvjf8f" path="res://Target/Target.tscn" id="2_q3lat"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3qydi"]
 radius = 0.275
@@ -14,8 +15,14 @@ height = 0.66
 radius = 0.15
 height = 0.655
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tok1r"]
+size = Vector3(60, 1, 60)
+
 [node name="Player" type="Node3D"]
 script = ExtResource("1_3qydi")
+
+[node name="Target" parent="." instance=ExtResource("2_q3lat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2063, 0, 0)
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575932, 0)
@@ -26,6 +33,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.815718, 0)
 mesh = SubResource("SphereMesh_q3lat")
 skeleton = NodePath("../..")
 
-[node name="Arm" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.361802, 0.836179, -0.612924)
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.801443, 0)
+
+[node name="Arm" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(0.998971, 0.0453456, -1.98212e-09, 0, -4.37114e-08, -1, -0.0453456, 0.998971, -4.36664e-08, 0.408597, -0.0331552, -0.496583)
 mesh = SubResource("CapsuleMesh_q3lat")
+skeleton = NodePath("../..")
+
+[node name="MousePlane" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MousePlane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_tok1r")
