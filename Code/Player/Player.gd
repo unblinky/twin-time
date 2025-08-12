@@ -1,5 +1,4 @@
-extends Node3D
-class_name Player
+extends CharacterBody3D
 
 var speed: float = 4.0 # m /s.
 var velocity: Vector3 = Vector3.ZERO
@@ -11,7 +10,7 @@ var velocity: Vector3 = Vector3.ZERO
 func _ready() -> void:
 	mouse_plane.input_event.connect(OnHover)
 
-func OnHover(camera, event, event_position, normal, shape_idx):
+func OnHover(_camera, _event, event_position, _normal, _shape_idx):
 	print(event_position)
 	target.position = event_position - position
 
