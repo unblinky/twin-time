@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cjuirrk2hk76n"]
 
-[ext_resource type="Script" uid="uid://dt218oiec4eue" path="res://Player/default.gd" id="1_tok1r"]
+[ext_resource type="Script" uid="uid://dt218oiec4eue" path="res://Player/Player.gd" id="1_tok1r"]
 [ext_resource type="PackedScene" uid="uid://bmtbd8fpvjf8f" path="res://Target/Target.tscn" id="2_q3lat"]
 [ext_resource type="Material" uid="uid://dsqneopfheuyp" path="res://Player/assets/burt_skin.tres" id="3_tok1r"]
 

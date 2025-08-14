@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6mk27qplxdk"]
+
+[ext_resource type="Material" uid="uid://w71eu5ktf8v7" path="res://Bullet/assets/laser_glow.tres" id="1_qratc"]
+[ext_resource type="Script" uid="uid://bd7spxb648i75" path="res://Bullet/Bullet.gd" id="1_v7qj8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uumvb"]
+size = Vector3(0.193359, 0.222656, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uumvb"]
+radius = 0.1
+height = 0.495
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qratc"]
+top_radius = 0.095
+bottom_radius = 0.015
+height = 0.675
+
+[node name="Bullet" type="Area3D"]
+script = ExtResource("1_v7qj8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.273907)
+shape = SubResource("BoxShape3D_uumvb")
+
+[node name="Core" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+material_override = ExtResource("1_qratc")
+mesh = SubResource("CapsuleMesh_uumvb")
+
+[node name="Tail" type="MeshInstance3D" parent="Core"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.467745, -2.04458e-08)
+material_override = ExtResource("1_qratc")
+mesh = SubResource("CylinderMesh_qratc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true

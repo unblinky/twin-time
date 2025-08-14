@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dg8o16kwfo4lc"]
+[gd_scene load_steps=9 format=3 uid="uid://dg8o16kwfo4lc"]
 
 [ext_resource type="PackedScene" uid="uid://cjuirrk2hk76n" path="res://Player/Player.tscn" id="1_lxy7q"]
 [ext_resource type="Script" uid="uid://l6w1ixdpksmm" path="res://Main/Main.gd" id="1_ps1la"]
 [ext_resource type="PackedScene" uid="uid://daops0mjeidif" path="res://Level/Level.tscn" id="2_6aewd"]
 [ext_resource type="PackedScene" uid="uid://bo67fto5x6akt" path="res://Debris/Debris.tscn" id="4_ps1la"]
+[ext_resource type="PackedScene" uid="uid://b6mk27qplxdk" path="res://Bullet/Bullet.tscn" id="5_6aewd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lxy7q"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -41,3 +42,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.9808)
 
 [node name="Debris" parent="." instance=ExtResource("4_ps1la")]
 transform = Transform3D(0.897674, 0.44066, -1.31327e-08, -0.40015, 0.815151, -0.418818, -0.184556, 0.375962, 0.90807, 2.30987, 2.64326, -2.7735)
+
+[node name="Bullet" parent="." instance=ExtResource("5_6aewd")]
+transform = Transform3D(-0.309332, 0, -0.950954, 0, 1, 0, 0.950954, 0, -0.309332, 0.174499, 2.52393, 8.26207)
