@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://b0tly6gciunwy"]
+[gd_scene load_steps=3 format=3 uid="uid://b0tly6gciunwy"]
+
+[ext_resource type="Material" uid="uid://bbpa2onqts2vd" path="res://Level/assets/silo.tres" id="1_8v7xt"]
+[ext_resource type="Material" uid="uid://bqrj267xcdcj4" path="res://Level/assets/tunnel.tres" id="2_x2gip"]
 
 [node name="Silo" type="CSGCombiner3D"]
 use_collision = true
@@ -8,8 +11,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.24224, 0)
 radius = 6.16699
 height = 7.06834
 sides = 15
+material = ExtResource("1_8v7xt")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="Tunnel" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80463, 1.56302, -1.57766)
 operation = 2
 size = Vector3(4.60925, 4.12604, 18.4427)
+material = ExtResource("2_x2gip")

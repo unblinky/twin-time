@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cik21j5qipdqn"]
+[gd_scene load_steps=5 format=3 uid="uid://cik21j5qipdqn"]
 
 [ext_resource type="Script" uid="uid://dkgbjgee382y8" path="res://Grenade/Grenade.gd" id="1_f5byv"]
+[ext_resource type="Material" uid="uid://m3i7whs64li7" path="res://Grenade/assets/grenade.tres" id="2_45rf1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k57rh"]
 radius = 0.1
@@ -16,4 +17,5 @@ script = ExtResource("1_f5byv")
 shape = SubResource("SphereShape3D_k57rh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_45rf1")
 mesh = SubResource("SphereMesh_pxdp7")
