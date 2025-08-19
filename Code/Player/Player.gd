@@ -2,12 +2,14 @@ extends CharacterBody3D
 class_name Player
 
 const BULLET = preload("res://Bullet/Bullet.tscn")
+const GRENADE = preload("res://Grenade/Grenade.tscn")
 
 @onready var mouse_plane = $MousePlane
 @onready var target = $Target
 @onready var pivot = $Pivot
 @onready var arm: MeshInstance3D = $Pivot/Arm
 
+var push_force: float = 2.0 # meters / sec.
 var speed: float = 4.0 # m /s.
 var jump_velocity: float = 6.5
 var kill_floor: float = -10.0
@@ -25,10 +27,15 @@ func SpawnBullet():
 	get_parent().add_child(bullet)
 	bullet.global_position = arm.global_position
 	bullet.rotation = pivot.rotation
-	
-	#var direction = bullet.transform.basis
+
+func SpawnGrenade():
+	var grenade = GRENADE.instantiate()
+	get_parent().add_child(grenade)
+	grenade.global_position = arm.global_position
+	var direction = Vector2.from_angle(pivot.rotation.y)
 	#print(direction)
-	#bullet.apply_impulse(Vector3(0, 10, -10))
+	grenade.apply_impulse(Vector3(-direction.y, 1, -direction.x) * grenade.countdown_length)
+	
 
 func OnHover(_camera, _event, event_position, _normal, _shape_idx):
 	target.position = event_position - position
@@ -40,8 +47,9 @@ func _physics_process(delta: float) -> void:
 		position = spawn_point
 	
 	if Input.is_action_just_pressed("fire"):
-		print("Fire!")
-		SpawnBullet()
+		#print("Fire!")
+		#SpawnBullet()
+		SpawnGrenade()
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -63,3 +71,11 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 	
 	move_and_slide()
+	
+	# Trying for player interaction with `RigidBody3D`.
+	# https://kidscancode.org/godot_recipes/4.x/physics/character_vs_rigid/
+	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody3D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cik21j5qipdqn"]
+
+[ext_resource type="Script" uid="uid://dkgbjgee382y8" path="res://Grenade/Grenade.gd" id="1_f5byv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k57rh"]
+radius = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_pxdp7"]
+radius = 0.1
+height = 0.2
+
+[node name="Grenade" type="RigidBody3D"]
+script = ExtResource("1_f5byv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_k57rh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_pxdp7")

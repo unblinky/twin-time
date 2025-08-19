@@ -41,8 +41,8 @@ transform = Transform3D(1, 0, 0, 0, 0.372632, 0.927979, 0, -0.927979, 0.372632, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.9808)
 
 [node name="Debris" parent="." instance=ExtResource("4_ps1la")]
-transform = Transform3D(0.897674, 0.44066, -1.31327e-08, -0.40015, 0.815151, -0.418818, -0.184556, 0.375962, 0.90807, 2.30987, 2.64326, -2.7735)
+transform = Transform3D(0.897674, 0.44066, -1.31327e-08, -0.40015, 0.815151, -0.418818, -0.184556, 0.375962, 0.90807, 2.30987, 2.64326, 8.795)
 
 [node name="Mob" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_6aewd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11123, 0, 9.05099)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.38727, 0, -13.6913)
 player = NodePath("../Player")
