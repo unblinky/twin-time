@@ -35,7 +35,6 @@ func SpawnGrenade():
 	var direction = Vector2.from_angle(pivot.rotation.y)
 	#print(direction)
 	grenade.apply_impulse(Vector3(-direction.y, 1, -direction.x) * grenade.countdown_length)
-	
 
 func OnHover(_camera, _event, event_position, _normal, _shape_idx):
 	target.position = event_position - position
