@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg8o16kwfo4lc"]
+[gd_scene load_steps=8 format=3 uid="uid://dg8o16kwfo4lc"]
 
 [ext_resource type="Script" uid="uid://l6w1ixdpksmm" path="res://Main/Main.gd" id="1_ps1la"]
+[ext_resource type="FontFile" uid="uid://dbjo14wltct6i" path="res://Main/assets/LexendZetta-SemiBold.ttf" id="2_83ytx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lxy7q"]
 sky_horizon_color = Color(1, 0.489391, 0.52931, 1)
@@ -22,6 +23,24 @@ glow_intensity = 2.19
 glow_strength = 1.05
 glow_bloom = 1.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxy7q"]
+content_margin_left = 64.0
+content_margin_top = 32.0
+content_margin_right = 64.0
+content_margin_bottom = 32.0
+bg_color = Color(0.713043, 0.564166, 0.482706, 0.827451)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_amygn"]
+font = ExtResource("2_83ytx")
+font_size = 22
+font_color = Color(0.228513, 0.124724, 0.14191, 1)
+shadow_size = 6
+shadow_color = Color(0.709804, 0, 0, 0.129412)
+
 [node name="Main" type="Node"]
 script = ExtResource("1_ps1la")
 
@@ -31,3 +50,34 @@ environment = SubResource("Environment_amygn")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.0541659, 0.864755, -0.499266, -9.83847e-09, 0.5, 0.866025, 0.998531, 0.0469097, -0.0270829, -12.5092, 10.5542, 4.77966)
 shadow_enabled = true
+
+[node name="RecapUI" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.0
+offset_top = -130.0
+offset_right = 294.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lxy7q")
+
+[node name="VBox" type="VBoxContainer" parent="RecapUI"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RecapUI/VBox"]
+layout_mode = 2
+text = "You played well.
+Time: 0123:4567890"
+label_settings = SubResource("LabelSettings_amygn")
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="RecapUI/VBox"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Next Level"

@@ -1,12 +1,24 @@
 extends Node
 class_name Main
 
+@onready var recap_ui = $RecapUI
+@onready var next_button = $RecapUI/VBox/NextButton
+
 var levels: Array[PackedScene] = [preload("res://Levels/Level_01.tscn"), preload("res://Levels/Level_02.tscn")]
 var level_index: int = -1
 var current_level: Level
 
 func _ready() -> void:
+	next_button.pressed.connect(OnRadicalClick)
+	recap_ui.hide()
 	NextLevel()
+
+func OnRadicalClick():
+	recap_ui.hide()
+	NextLevel()
+
+func EndLevel():
+	recap_ui.show()
 
 func NextLevel():
 	# Increment level index, or wrap to first level.

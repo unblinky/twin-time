@@ -19,4 +19,4 @@ func _ready() -> void:
 func OnExit(body):
 	print("Exiting")
 	if body is Player:
-		main.NextLevel()
+		main.EndLevel()
