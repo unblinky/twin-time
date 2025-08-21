@@ -1,11 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dg8o16kwfo4lc"]
+[gd_scene load_steps=5 format=3 uid="uid://dg8o16kwfo4lc"]
 
-[ext_resource type="PackedScene" uid="uid://cjuirrk2hk76n" path="res://Player/Player.tscn" id="1_lxy7q"]
 [ext_resource type="Script" uid="uid://l6w1ixdpksmm" path="res://Main/Main.gd" id="1_ps1la"]
-[ext_resource type="PackedScene" uid="uid://daops0mjeidif" path="res://Level/Level.tscn" id="2_6aewd"]
-[ext_resource type="PackedScene" uid="uid://bo67fto5x6akt" path="res://Debris/Debris.tscn" id="4_ps1la"]
-[ext_resource type="PackedScene" uid="uid://cyf73iap53ynj" path="res://Mob/Mob.tscn" id="5_6aewd"]
-[ext_resource type="PackedScene" uid="uid://cik21j5qipdqn" path="res://Grenade/Grenade.tscn" id="6_u2i7p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lxy7q"]
 sky_horizon_color = Color(1, 0.489391, 0.52931, 1)
@@ -36,24 +31,3 @@ environment = SubResource("Environment_amygn")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.0541659, 0.864755, -0.499266, -9.83847e-09, 0.5, 0.866025, 0.998531, 0.0469097, -0.0270829, -12.5092, 10.5542, 4.77966)
 shadow_enabled = true
-
-[node name="Level" parent="." instance=ExtResource("2_6aewd")]
-
-[node name="Player" parent="." instance=ExtResource("1_lxy7q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5054, 2.48344, 9.21573)
-
-[node name="Rig" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.372632, 0.927979, 0, -0.927979, 0.372632, 0, 0, -1.72126)
-
-[node name="Camera3D" type="Camera3D" parent="Player/Rig"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.9808)
-
-[node name="Debris" parent="." instance=ExtResource("4_ps1la")]
-transform = Transform3D(0.897674, 0.44066, -1.31327e-08, -0.40015, 0.815151, -0.418818, -0.184556, 0.375962, 0.90807, 2.30987, 2.64326, 8.795)
-
-[node name="Mob" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_6aewd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49142, 2.6853, 2.8577)
-player = NodePath("../Player")
-
-[node name="Grenade" parent="." instance=ExtResource("6_u2i7p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55974, 3.75584, 14.3055)

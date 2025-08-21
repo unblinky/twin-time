@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5oe4syfeg123"]
+
+[ext_resource type="Script" uid="uid://cq5kvur26lrnq" path="res://Level/Level.gd" id="1_c7tlk"]
+[ext_resource type="PackedScene" uid="uid://b0vk61n58s3k4" path="res://Floor/Floor.tscn" id="2_ce6vd"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_r3cbp"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r3cbp"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mtno4"]
+top_radius = 0.05
+height = 2.425
+
+[node name="Level_02" type="Node3D"]
+script = ExtResource("1_c7tlk")
+
+[node name="Floor" parent="." instance=ExtResource("2_ce6vd")]
+
+[node name="SpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285188, 2.3601, -2.10122)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpawnPoint"]
+mesh = SubResource("SphereMesh_r3cbp")
+
+[node name="Exit" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8972, 0.471097, 5.66759)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit"]
+shape = SubResource("BoxShape3D_r3cbp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89957, 0)
+mesh = SubResource("CylinderMesh_mtno4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.691538, 0.72234, 0, -0.72234, 0.691538, 0, 0, 0, 1, 0.527447, 1.43339, 0)
+mesh = SubResource("CylinderMesh_mtno4")

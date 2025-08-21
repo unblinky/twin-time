@@ -84,3 +84,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.759815, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MousePlane"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_tok1r")
+
+[node name="Rig" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.372632, 0.927979, 0, -0.927979, 0.372632, 0, 0, -1.72126)
+
+[node name="Camera3D" type="Camera3D" parent="Rig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.9808)
