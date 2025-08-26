@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjuirrk2hk76n"]
+[gd_scene load_steps=14 format=3 uid="uid://cjuirrk2hk76n"]
 
 [ext_resource type="Script" uid="uid://dt218oiec4eue" path="res://Player/Player.gd" id="1_tok1r"]
 [ext_resource type="PackedScene" uid="uid://bmtbd8fpvjf8f" path="res://Target/Target.tscn" id="2_q3lat"]
 [ext_resource type="Material" uid="uid://dsqneopfheuyp" path="res://Player/assets/burt_skin.tres" id="3_tok1r"]
+[ext_resource type="PackedScene" uid="uid://c7p4ls0ff5hm5" path="res://Player/MovementUI.tscn" id="4_ddoul"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ddoul"]
 radius = 0.365
@@ -90,3 +91,5 @@ transform = Transform3D(1, 0, 0, 0, 0.372632, 0.927979, 0, -0.927979, 0.372632, 
 
 [node name="Camera3D" type="Camera3D" parent="Rig"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.9808)
+
+[node name="MovementUI" parent="." instance=ExtResource("4_ddoul")]

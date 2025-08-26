@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dc73tp44cum6q"]
+
+[ext_resource type="FontFile" uid="uid://dbjo14wltct6i" path="res://Main/assets/LexendZetta-SemiBold.ttf" id="1_bnfvp"]
+
+[resource]
+font = ExtResource("1_bnfvp")
+font_size = 27

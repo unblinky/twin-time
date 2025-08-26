@@ -68,10 +68,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_lxy7q")
 [node name="VBox" type="VBoxContainer" parent="RecapUI"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="RecapUI/VBox"]
+[node name="Time" type="Label" parent="RecapUI/VBox"]
 layout_mode = 2
-text = "You played well.
-Time: 0123:4567890"
+text = "Time:"
 label_settings = SubResource("LabelSettings_amygn")
 horizontal_alignment = 1
 

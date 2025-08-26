@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7p4ls0ff5hm5"]
+
+[ext_resource type="Script" uid="uid://b47d0fe1k44yd" path="res://Player/MovementUi.gd" id="1_eylap"]
+[ext_resource type="StyleBox" uid="uid://b4e1qebjvotkb" path="res://Player/assets/key_style.tres" id="1_r5ro4"]
+[ext_resource type="LabelSettings" uid="uid://dc73tp44cum6q" path="res://Player/assets/key_label.tres" id="2_eylap"]
+
+[node name="MovementUI" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -100.0
+offset_right = 78.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_eylap")
+
+[node name="W" type="Label" parent="."]
+layout_mode = 2
+offset_left = 49.0
+offset_right = 101.0
+offset_bottom = 52.0
+theme_override_styles/normal = ExtResource("1_r5ro4")
+text = "W"
+label_settings = ExtResource("2_eylap")
+horizontal_alignment = 1
+
+[node name="A" type="Label" parent="."]
+layout_mode = 2
+offset_top = 56.0
+offset_right = 45.0
+offset_bottom = 108.0
+theme_override_styles/normal = ExtResource("1_r5ro4")
+text = "A"
+label_settings = ExtResource("2_eylap")
+horizontal_alignment = 1
+
+[node name="S" type="Label" parent="."]
+layout_mode = 2
+offset_left = 49.0
+offset_top = 56.0
+offset_right = 101.0
+offset_bottom = 108.0
+theme_override_styles/normal = ExtResource("1_r5ro4")
+text = "S"
+label_settings = ExtResource("2_eylap")
+horizontal_alignment = 1
+
+[node name="D" type="Label" parent="."]
+layout_mode = 2
+offset_left = 105.0
+offset_top = 56.0
+offset_right = 152.0
+offset_bottom = 108.0
+theme_override_styles/normal = ExtResource("1_r5ro4")
+text = "D"
+label_settings = ExtResource("2_eylap")
+horizontal_alignment = 1
+
+[node name="AltMode" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 0.5
+offset_top = -19.0
+offset_right = 146.5
+offset_bottom = -5.0
+color = Color(0.700614, 0.398113, 0.423949, 1)
+
+[node name="TimeUI" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.5
+offset_top = -52.0
+offset_right = 42.5
+offset_bottom = -29.0
+text = "Time:"

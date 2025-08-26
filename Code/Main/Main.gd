@@ -3,6 +3,7 @@ class_name Main
 
 @onready var recap_ui = $RecapUI
 @onready var next_button = $RecapUI/VBox/NextButton
+@onready var time_ui = $RecapUI/VBox/Time
 
 var levels: Array[PackedScene] = [preload("res://Levels/Level_01.tscn"), preload("res://Levels/Level_02.tscn")]
 var level_index: int = -1
@@ -17,8 +18,9 @@ func OnRadicalClick():
 	recap_ui.hide()
 	NextLevel()
 
-func EndLevel():
+func EndLevel(time: float):
 	recap_ui.show()
+	time_ui.text = str(time)
 
 func NextLevel():
 	# Increment level index, or wrap to first level.
