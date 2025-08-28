@@ -1,4 +1,5 @@
 .godot/
+Builds/
 *.blend1
 *.kra~
 *.png~
